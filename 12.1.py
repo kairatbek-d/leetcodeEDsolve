@@ -26,9 +26,6 @@
 # Runtime: 84 ms, faster than 15.36%
 # Memory Usage: 14.3 MB, less than 28.56%
 
-from typing import List
-
-
 class Solution:
     def intToRoman(self, num: int) -> str:
         numeral = ''

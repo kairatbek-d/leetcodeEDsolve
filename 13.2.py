@@ -20,23 +20,23 @@
     # I can be placed before V (5) and X (10) to make 4 and 9. 
     # X can be placed before L (50) and C (100) to make 40 and 90. 
     # C can be placed before D (500) and M (1000) to make 400 and 900.
-# Given an integer, convert it to a roman numeral.
+# Given a roman numeral, convert it to an integer.
 
 
-# Runtime: 77 ms, faster than 20.32%
-# Memory Usage: 14.2 MB, less than 60.57%
+# Runtime: 85 ms, faster than 11.00%
+# Memory Usage: 14 MB, less than 95.13%
 
 class Solution:
-    def intToRoman(self, num: int) -> str:
-        thousands, num = divmod(num, 1000)
-        hundreds, num = divmod(num, 100)
-        tens, ones = divmod(num, 10)
-        td = ["", "M", "MM","MMM"]
-        hd = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
-        ed = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
-        od = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
-        
-        return td[thousands] + hd[hundreds] + ed[tens] + od[ones]
+    def intToRoman(self, s: str) -> int:
+        res, prev = 0, 0
+        dict = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+        for i in s[::-1]:          # rev the s
+            if dict[i] >= prev:
+                res += dict[i]     # sum the value iff previous value same or more
+            else:
+                res -= dict[i]     # substract when value is like "IV" --> 5-1, "IX" --> 10 -1 etc 
+            prev = dict[i]
+        return res
 
 sol = Solution()
-print(sol.intToRoman(58))
+print(sol.intToRoman("IIIV"))

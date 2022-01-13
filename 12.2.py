@@ -26,9 +26,6 @@
 # Runtime: 72 ms, faster than 25.18%
 # Memory Usage: 14.3 MB, less than 60.57%
 
-from typing import List
-
-
 class Solution:
     def intToRoman(self, num: int) -> str:
         def digit_to_roman(digit, one, five, ten):
