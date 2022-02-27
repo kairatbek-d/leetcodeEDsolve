@@ -5,11 +5,8 @@
 
 # Runtime: 70 ms, faster than 65.70%
 # Memory Usage: 14.2 MB, less than 53.71%
-from typing import List
-
-
 class Solution:
-    def solveNQueens(self, n: int) -> List[List[str]]:
+    def totalNQueens(self, n: int) -> int:
         def queensToBoard(queens):
             board = [["."] * n for i in range(n)]
             for r, c in queens:

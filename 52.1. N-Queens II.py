@@ -5,9 +5,6 @@
 
 # Runtime: 36 ms, faster than 99.15%
 # Memory Usage: 14 MB, less than 73.98%
-from typing import List
-
-
 class Solution:
     def totalNQueens(self, n: int) -> int:
         def DFS(queens, xy_dif, xy_sum):
